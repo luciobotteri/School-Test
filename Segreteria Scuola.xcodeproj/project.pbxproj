@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AFA0CA452B34EFE700CBB17D /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA0CA442B34EFE700CBB17D /* HeaderView.swift */; };
+		AFA0CA472B34F40A00CBB17D /* AddClassroomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA0CA462B34F40A00CBB17D /* AddClassroomView.swift */; };
 		AFEF19D72B3258D900EE659B /* Segreteria_ScuolaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF19D62B3258D900EE659B /* Segreteria_ScuolaApp.swift */; };
 		AFEF19D92B3258D900EE659B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF19D82B3258D900EE659B /* ContentView.swift */; };
 		AFEF19DB2B3258DB00EE659B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFEF19DA2B3258DB00EE659B /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AFA0CA442B34EFE700CBB17D /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		AFA0CA462B34F40A00CBB17D /* AddClassroomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClassroomView.swift; sourceTree = "<group>"; };
 		AFEF19D32B3258D900EE659B /* Segreteria Scuola.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Segreteria Scuola.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFEF19D62B3258D900EE659B /* Segreteria_ScuolaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segreteria_ScuolaApp.swift; sourceTree = "<group>"; };
 		AFEF19D82B3258D900EE659B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 				AFEF19F82B33803600EE659B /* StudentView.swift */,
 				AFEF19FA2B34422B00EE659B /* CircleAvatarView.swift */,
 				AFEF19FC2B34DCF800EE659B /* ClassroomsListView.swift */,
+				AFA0CA442B34EFE700CBB17D /* HeaderView.swift */,
+				AFA0CA462B34F40A00CBB17D /* AddClassroomView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -201,6 +207,7 @@
 				AFEF19EA2B32593900EE659B /* Professor.swift in Sources */,
 				AFEF19F72B337F3F00EE659B /* ProfessorView.swift in Sources */,
 				AFEF19EE2B33311D00EE659B /* NetworkManager.swift in Sources */,
+				AFA0CA452B34EFE700CBB17D /* HeaderView.swift in Sources */,
 				AFEF19FD2B34DCF800EE659B /* ClassroomsListView.swift in Sources */,
 				AFEF19E52B32590200EE659B /* Classroom.swift in Sources */,
 				AFEF1A012B34E83400EE659B /* Wave.swift in Sources */,
@@ -208,6 +215,7 @@
 				AFEF19FB2B34422B00EE659B /* CircleAvatarView.swift in Sources */,
 				AFEF19EC2B332E5E00EE659B /* ViewModel.swift in Sources */,
 				AFEF19F42B33756B00EE659B /* ClassroomDetailView.swift in Sources */,
+				AFA0CA472B34F40A00CBB17D /* AddClassroomView.swift in Sources */,
 				AFEF19E72B32591C00EE659B /* Student.swift in Sources */,
 				AFEF19F92B33803600EE659B /* StudentView.swift in Sources */,
 				AFEF19F02B333DC600EE659B /* ClassroomsData.swift in Sources */,

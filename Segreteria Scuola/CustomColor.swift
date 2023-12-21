@@ -13,6 +13,7 @@ enum CustomColor {
         Color("Color \(i%numberOfCellColors)")
     }
     static let background = Color("Background")
+    static let background2 = Color("Background 2")
     
     static let numberOfCellColors = 6
 }

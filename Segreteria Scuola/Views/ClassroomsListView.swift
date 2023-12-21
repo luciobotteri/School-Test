@@ -33,7 +33,11 @@ struct ClassroomsListView: View {
             .padding(.horizontal)
         }
         .scrollIndicators(.never)
-        .scrollBounceBehavior(.basedOnSize)
+        .refreshable {
+            Task {
+                await viewModel.fetchClassrooms()
+            }
+        }
     }
 }
 

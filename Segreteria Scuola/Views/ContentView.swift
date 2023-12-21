@@ -12,6 +12,7 @@ struct ContentView: View {
     @Environment(ViewModel.self) private var viewModel
     
     @State private var selectedIndex: Int?
+    @State private var showAddClassroom = false
     @State private var isAnimating = false
     
     @Namespace private var animationNamespace
@@ -25,11 +26,13 @@ struct ContentView: View {
             listOrDetailView
                 .safeAreaPadding(.top, 120)
             VStack {
-                headerView
+                HeaderView(selectedIndex: $selectedIndex, showAddClassroom: $showAddClassroom)
                 Spacer()
             }
         }.background {
             CustomColor.background.ignoresSafeArea()
+        }.sheet(isPresented: $showAddClassroom) {
+            AddClassroomView()
         }.onAppear {
             if classrooms.isEmpty {
                 Task {
@@ -46,48 +49,6 @@ struct ContentView: View {
         } else {
             ClassroomsListView(selectedIndex: $selectedIndex)
                 .transition(.move(edge: .leading).combined(with: .opacity))
-        }
-    }
-    
-    private var headerView: some View {
-        ZStack {
-            Wave()
-                .fill(CustomColor.header)
-                .ignoresSafeArea()
-                .padding(.bottom)
-            HStack(spacing: 2) {
-                if selectedIndex != nil {
-                    Button {
-                        withAnimation {
-                            selectedIndex = nil
-                        }
-                    } label: {
-                        Image(systemName: "chevron.left")
-                    }.transition(.move(edge: .leading).combined(with: .opacity))
-                    Spacer()
-                }
-                Text(titleString).bold()
-                    .minimumScaleFactor(0.1)
-                    .contentTransition(.numericText())
-                if selectedIndex != nil {
-                    Spacer()
-                } else {
-                    Text("rooms").fontWeight(.light)
-                        .transition(.move(edge: .trailing).combined(with: .scale))
-                }
-            }
-            .font(.largeTitle).padding()
-            .fontDesign(.rounded)
-            .foregroundStyle(Color(white: 0.95))
-            .padding(.vertical, 30)
-        }.frame(height: 80).padding(.bottom, 30)
-    }
-    
-    private var titleString: String {
-        if let i = selectedIndex {
-            classrooms[i]._id
-        } else {
-            "Class"
         }
     }
 }
