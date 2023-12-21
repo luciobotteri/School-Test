@@ -1,0 +1,421 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AFEF19D72B3258D900EE659B /* Segreteria_ScuolaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF19D62B3258D900EE659B /* Segreteria_ScuolaApp.swift */; };
+		AFEF19D92B3258D900EE659B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF19D82B3258D900EE659B /* ContentView.swift */; };
+		AFEF19DB2B3258DB00EE659B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFEF19DA2B3258DB00EE659B /* Assets.xcassets */; };
+		AFEF19DE2B3258DB00EE659B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFEF19DD2B3258DB00EE659B /* Preview Assets.xcassets */; };
+		AFEF19E52B32590200EE659B /* Classroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF19E42B32590200EE659B /* Classroom.swift */; };
+		AFEF19E72B32591C00EE659B /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF19E62B32591C00EE659B /* Student.swift */; };
+		AFEF19EA2B32593900EE659B /* Professor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF19E92B32593900EE659B /* Professor.swift */; };
+		AFEF19EC2B332E5E00EE659B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF19EB2B332E5E00EE659B /* ViewModel.swift */; };
+		AFEF19EE2B33311D00EE659B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF19ED2B33311D00EE659B /* NetworkManager.swift */; };
+		AFEF19F02B333DC600EE659B /* ClassroomsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF19EF2B333DC600EE659B /* ClassroomsData.swift */; };
+		AFEF19F22B3343D400EE659B /* ClassroomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF19F12B3343D400EE659B /* ClassroomView.swift */; };
+		AFEF19F42B33756B00EE659B /* ClassroomDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF19F32B33756B00EE659B /* ClassroomDetailView.swift */; };
+		AFEF19F72B337F3F00EE659B /* ProfessorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF19F62B337F3F00EE659B /* ProfessorView.swift */; };
+		AFEF19F92B33803600EE659B /* StudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF19F82B33803600EE659B /* StudentView.swift */; };
+		AFEF19FB2B34422B00EE659B /* CircleAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF19FA2B34422B00EE659B /* CircleAvatarView.swift */; };
+		AFEF19FD2B34DCF800EE659B /* ClassroomsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF19FC2B34DCF800EE659B /* ClassroomsListView.swift */; };
+		AFEF19FF2B34E75100EE659B /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF19FE2B34E75100EE659B /* CustomColor.swift */; };
+		AFEF1A012B34E83400EE659B /* Wave.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF1A002B34E83400EE659B /* Wave.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AFEF19D32B3258D900EE659B /* Segreteria Scuola.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Segreteria Scuola.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFEF19D62B3258D900EE659B /* Segreteria_ScuolaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segreteria_ScuolaApp.swift; sourceTree = "<group>"; };
+		AFEF19D82B3258D900EE659B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AFEF19DA2B3258DB00EE659B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AFEF19DD2B3258DB00EE659B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AFEF19E42B32590200EE659B /* Classroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classroom.swift; sourceTree = "<group>"; };
+		AFEF19E62B32591C00EE659B /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		AFEF19E92B32593900EE659B /* Professor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Professor.swift; sourceTree = "<group>"; };
+		AFEF19EB2B332E5E00EE659B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		AFEF19ED2B33311D00EE659B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		AFEF19EF2B333DC600EE659B /* ClassroomsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomsData.swift; sourceTree = "<group>"; };
+		AFEF19F12B3343D400EE659B /* ClassroomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomView.swift; sourceTree = "<group>"; };
+		AFEF19F32B33756B00EE659B /* ClassroomDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomDetailView.swift; sourceTree = "<group>"; };
+		AFEF19F62B337F3F00EE659B /* ProfessorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessorView.swift; sourceTree = "<group>"; };
+		AFEF19F82B33803600EE659B /* StudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentView.swift; sourceTree = "<group>"; };
+		AFEF19FA2B34422B00EE659B /* CircleAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleAvatarView.swift; sourceTree = "<group>"; };
+		AFEF19FC2B34DCF800EE659B /* ClassroomsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomsListView.swift; sourceTree = "<group>"; };
+		AFEF19FE2B34E75100EE659B /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
+		AFEF1A002B34E83400EE659B /* Wave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wave.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AFEF19D02B3258D900EE659B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AFEF19CA2B3258D900EE659B = {
+			isa = PBXGroup;
+			children = (
+				AFEF19D52B3258D900EE659B /* Segreteria Scuola */,
+				AFEF19D42B3258D900EE659B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AFEF19D42B3258D900EE659B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AFEF19D32B3258D900EE659B /* Segreteria Scuola.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AFEF19D52B3258D900EE659B /* Segreteria Scuola */ = {
+			isa = PBXGroup;
+			children = (
+				AFEF19D62B3258D900EE659B /* Segreteria_ScuolaApp.swift */,
+				AFEF19ED2B33311D00EE659B /* NetworkManager.swift */,
+				AFEF19EB2B332E5E00EE659B /* ViewModel.swift */,
+				AFEF1A002B34E83400EE659B /* Wave.swift */,
+				AFEF19FE2B34E75100EE659B /* CustomColor.swift */,
+				AFEF19E82B32592100EE659B /* Model */,
+				AFEF19F52B337E7800EE659B /* Views */,
+				AFEF19DA2B3258DB00EE659B /* Assets.xcassets */,
+				AFEF19DC2B3258DB00EE659B /* Preview Content */,
+			);
+			path = "Segreteria Scuola";
+			sourceTree = "<group>";
+		};
+		AFEF19DC2B3258DB00EE659B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				AFEF19DD2B3258DB00EE659B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AFEF19E82B32592100EE659B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AFEF19EF2B333DC600EE659B /* ClassroomsData.swift */,
+				AFEF19E42B32590200EE659B /* Classroom.swift */,
+				AFEF19E62B32591C00EE659B /* Student.swift */,
+				AFEF19E92B32593900EE659B /* Professor.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AFEF19F52B337E7800EE659B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AFEF19D82B3258D900EE659B /* ContentView.swift */,
+				AFEF19F12B3343D400EE659B /* ClassroomView.swift */,
+				AFEF19F32B33756B00EE659B /* ClassroomDetailView.swift */,
+				AFEF19F62B337F3F00EE659B /* ProfessorView.swift */,
+				AFEF19F82B33803600EE659B /* StudentView.swift */,
+				AFEF19FA2B34422B00EE659B /* CircleAvatarView.swift */,
+				AFEF19FC2B34DCF800EE659B /* ClassroomsListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AFEF19D22B3258D900EE659B /* Segreteria Scuola */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AFEF19E12B3258DB00EE659B /* Build configuration list for PBXNativeTarget "Segreteria Scuola" */;
+			buildPhases = (
+				AFEF19CF2B3258D900EE659B /* Sources */,
+				AFEF19D02B3258D900EE659B /* Frameworks */,
+				AFEF19D12B3258D900EE659B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Segreteria Scuola";
+			productName = "Segreteria Scuola";
+			productReference = AFEF19D32B3258D900EE659B /* Segreteria Scuola.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AFEF19CB2B3258D900EE659B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1510;
+				LastUpgradeCheck = 1510;
+				TargetAttributes = {
+					AFEF19D22B3258D900EE659B = {
+						CreatedOnToolsVersion = 15.1;
+					};
+				};
+			};
+			buildConfigurationList = AFEF19CE2B3258D900EE659B /* Build configuration list for PBXProject "Segreteria Scuola" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AFEF19CA2B3258D900EE659B;
+			productRefGroup = AFEF19D42B3258D900EE659B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AFEF19D22B3258D900EE659B /* Segreteria Scuola */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AFEF19D12B3258D900EE659B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFEF19DE2B3258DB00EE659B /* Preview Assets.xcassets in Resources */,
+				AFEF19DB2B3258DB00EE659B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AFEF19CF2B3258D900EE659B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFEF19D92B3258D900EE659B /* ContentView.swift in Sources */,
+				AFEF19D72B3258D900EE659B /* Segreteria_ScuolaApp.swift in Sources */,
+				AFEF19F22B3343D400EE659B /* ClassroomView.swift in Sources */,
+				AFEF19EA2B32593900EE659B /* Professor.swift in Sources */,
+				AFEF19F72B337F3F00EE659B /* ProfessorView.swift in Sources */,
+				AFEF19EE2B33311D00EE659B /* NetworkManager.swift in Sources */,
+				AFEF19FD2B34DCF800EE659B /* ClassroomsListView.swift in Sources */,
+				AFEF19E52B32590200EE659B /* Classroom.swift in Sources */,
+				AFEF1A012B34E83400EE659B /* Wave.swift in Sources */,
+				AFEF19FF2B34E75100EE659B /* CustomColor.swift in Sources */,
+				AFEF19FB2B34422B00EE659B /* CircleAvatarView.swift in Sources */,
+				AFEF19EC2B332E5E00EE659B /* ViewModel.swift in Sources */,
+				AFEF19F42B33756B00EE659B /* ClassroomDetailView.swift in Sources */,
+				AFEF19E72B32591C00EE659B /* Student.swift in Sources */,
+				AFEF19F92B33803600EE659B /* StudentView.swift in Sources */,
+				AFEF19F02B333DC600EE659B /* ClassroomsData.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AFEF19DF2B3258DB00EE659B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AFEF19E02B3258DB00EE659B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AFEF19E22B3258DB00EE659B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Segreteria Scuola/Preview Content\"";
+				DEVELOPMENT_TEAM = CY3THQDJ45;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "it.luciobotteri.Segreteria-Scuola";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AFEF19E32B3258DB00EE659B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Segreteria Scuola/Preview Content\"";
+				DEVELOPMENT_TEAM = CY3THQDJ45;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "it.luciobotteri.Segreteria-Scuola";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AFEF19CE2B3258D900EE659B /* Build configuration list for PBXProject "Segreteria Scuola" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFEF19DF2B3258DB00EE659B /* Debug */,
+				AFEF19E02B3258DB00EE659B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AFEF19E12B3258DB00EE659B /* Build configuration list for PBXNativeTarget "Segreteria Scuola" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFEF19E22B3258DB00EE659B /* Debug */,
+				AFEF19E32B3258DB00EE659B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AFEF19CB2B3258D900EE659B /* Project object */;
+}
