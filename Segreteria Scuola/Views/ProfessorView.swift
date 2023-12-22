@@ -11,7 +11,7 @@ struct ProfessorView: View {
     
     var professor: Professor
     
-    @State private var isExpanded = false
+    @State var isExpanded = false
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -46,6 +46,8 @@ struct ProfessorView: View {
                     .padding(.top)
             }
         }
+        .navigationTitle("Dettagli professore")
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     @ViewBuilder private var expandedContent: some View {

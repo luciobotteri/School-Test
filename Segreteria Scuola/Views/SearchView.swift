@@ -54,24 +54,26 @@ struct SearchView: View {
         NavigationView {
             List {
                 Section {
-                    ForEach(filteredProfessors.indices, id: \.self) { i in
+                    ForEach(filteredProfessors, id: \._id) { prof in
                         NavigationLink {
-                            ProfessorView(professor: professors[i])
-                                .padding()
+                            VStack {
+                                ProfessorView(professor: prof, isExpanded: true)
+                                Spacer()
+                            }.padding()
                         } label: {
-                            Text(professors[i].name ?? professors[i]._id)
+                            Text(prof.name ?? prof._id)
                         }
                     }
                 } header: {
                     Text("Professori")
                 }
                 Section {
-                    ForEach(filteredStudents.indices, id: \.self) { i in
+                    ForEach(filteredStudents, id: \._id) { student in
                         NavigationLink {
-                            StudentView(student: students[i])
+                            StudentView(student: student)
                                 .padding()
                         } label: {
-                            Text(students[i].name ?? students[i]._id)
+                            Text(student.name ?? student._id)
                         }
                     }
                 } header: {

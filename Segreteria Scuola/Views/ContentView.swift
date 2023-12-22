@@ -34,6 +34,8 @@ struct ContentView: View {
             CustomColor.background.ignoresSafeArea()
         }.sheet(isPresented: $showAddClassroom) {
             AddClassroomView()
+        }.sheet(isPresented: $showSearch) {
+            SearchView()
         }.onAppear {
             if classrooms.isEmpty {
                 Task {

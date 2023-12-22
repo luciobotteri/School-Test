@@ -7,30 +7,17 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct StudentView: View {
     var student: Student
-    
-    var avatarURL: URL? {
-        URL(string: student.avatar ?? "")
-    }
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 // Immagine dello Studente (se disponibile)
-                if let avatarURL {
-                    AsyncImage(url: avatarURL) { image in
-                        image.resizable()
-                    } placeholder: {
-                        ProgressView()
-                    }
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 150, height: 150)
-                    .clipShape(Circle())
-                    .shadow(radius: 10)
-                    .padding(.top, 20)
+                HStack {
+                    CircleAvatarView(urlString: student.avatar)
+                        .frame(width: 100, height: 100)
+                    Spacer()
                 }
 
                 // Nome (se disponibile)
@@ -45,6 +32,17 @@ struct StudentView: View {
                     Text(email)
                         .font(.subheadline)
                         .foregroundColor(.secondary)
+                }
+                
+                // Classe (se disponibile)
+                if let classroom = student.classroom {
+                    VStack(alignment: .leading) {
+                        Text("Classe:")
+                            .font(.headline)
+                            .padding(.bottom, 5)
+
+                        Text(classroom)
+                    }
                 }
 
                 // Note (se disponibili)

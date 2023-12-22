@@ -59,7 +59,7 @@ struct HeaderView: View {
                         Button {
                             showSearch = true
                         } label: {
-                            Label("Search", systemImage: "magnifier.glass")
+                            Label("Search", systemImage: "magnifyingglass")
                         }
                         Button(role: .destructive) {
                             showAddClassroom = true
