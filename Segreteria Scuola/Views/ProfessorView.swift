@@ -12,6 +12,8 @@ struct ProfessorView: View {
     var professor: Professor
     
     @State var isExpanded = false
+    
+    @Namespace private var animationNamespace
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -22,13 +24,10 @@ struct ProfessorView: View {
             
             HStack(spacing: 10) {
                 CircleAvatarView(urlString: professor.avatar)
-                    .frame(width: isExpanded ? 80 : 50, height: isExpanded ? 80 : 50)
-                VStack(alignment: .leading) {
-                    Text(professor.name ?? "No name")
-                        .font(.title2)
-                        .bold()
-                    Text(professor.email ?? "Email non presente")
-                        .foregroundStyle(.secondary)
+                    .frame(width: isExpanded ? 100 : 50, height: isExpanded ? 100 : 50)
+                if !isExpanded {
+                    professorDetails
+                        .matchedGeometryEffect(id: "professorDetails", in: animationNamespace)
                 }
                 Spacer()
                 Image(systemName: "chevron.right")
@@ -42,12 +41,33 @@ struct ProfessorView: View {
             }
             
             if isExpanded {
+                professorDetails
+                    .matchedGeometryEffect(id: "professorDetails", in: animationNamespace)
+                    .padding(.top)
                 expandedContent
                     .padding(.top)
             }
         }
         .navigationTitle("Dettagli professore")
         .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    private var professorDetails: some View {
+        VStack(alignment: .leading) {
+            Text(professor.name ?? "No name")
+                .font(.title2)
+                .bold()
+            if isExpanded, let email = professor.email, let url = URL(string: "mailto:"+email) {
+                Link(email, destination: url)
+                    .font(.title3)
+                    .fontWeight(.medium)
+                    .minimumScaleFactor(0.1)
+            }
+            if !isExpanded {
+                Text(professor.email ?? "Email non presente")
+                    .foregroundStyle(.secondary)
+            }
+        }
     }
     
     @ViewBuilder private var expandedContent: some View {
@@ -63,6 +83,9 @@ struct ProfessorView: View {
 
 
 #Preview {
-    ProfessorView(professor: .mock)
-        .padding()
+    VStack {
+        ProfessorView(professor: .mock)
+        Divider().padding()
+        ProfessorView(professor: .mock, isExpanded: true)
+    }.padding()
 }

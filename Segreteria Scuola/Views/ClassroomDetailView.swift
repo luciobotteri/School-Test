@@ -17,6 +17,7 @@ struct ClassroomDetailView: View {
     @State private var errorMessage: String?
     @State private var isLoading = false
     @State private var showingDeleteAlert = false
+    @State private var offset: CGFloat = 0
 
     var body: some View {
         ScrollView {
@@ -39,6 +40,25 @@ struct ClassroomDetailView: View {
             }
             .padding()
         }
+        .offset(x: offset)
+        .gesture(
+            DragGesture()
+                .onChanged { value in
+                    withAnimation(.spring()) {
+                        offset = value.translation.width
+                    }
+                    if offset > 60 {
+                        withAnimation {
+                            selectedIndex = nil
+                        }
+                    }
+                }
+                .onEnded { value in
+                    withAnimation(.spring()) {
+                        offset = .zero
+                    }
+                }
+        )
     }
     
     @ViewBuilder private var professorView: some View {
