@@ -32,7 +32,7 @@ struct ContentView: View {
             }
         }.background {
             CustomColor.background.ignoresSafeArea()
-        }.sheet(isPresented: $showAddClassroom) {
+        }.fullScreenCover(isPresented: $showAddClassroom) {
             AddClassroomView()
         }.sheet(isPresented: $showSearch) {
             SearchView()
@@ -58,5 +58,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .environment(ViewModel.withMocks(0))
+        .environment(ViewModel.withMocks(10))
 }

@@ -52,36 +52,50 @@ struct SearchView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                Section {
-                    ForEach(filteredProfessors, id: \._id) { prof in
-                        NavigationLink {
-                            VStack {
-                                ProfessorView(professor: prof, isExpanded: true)
-                                Spacer()
-                            }.padding()
-                        } label: {
-                            Text(prof.name ?? prof._id)
-                        }
-                    }
-                } header: {
-                    Text("Professori")
-                }
-                Section {
-                    ForEach(filteredStudents, id: \._id) { student in
-                        NavigationLink {
-                            StudentView(student: student)
-                                .padding()
-                        } label: {
-                            Text(student.name ?? student._id)
-                        }
-                    }
-                } header: {
-                    Text("Studenti")
-                }
+            if filteredProfessors.isEmpty, filteredStudents.isEmpty {
+                ContentUnavailableView.search
+            } else {
+                List {
+                    professorsSection
+                    studentsSection
+                }.headerProminence(.increased)
             }
-            .headerProminence(.increased)
-            .searchable(text: $searchText, isPresented: $searchIsActive)
+        }.searchable(text: $searchText, isPresented: $searchIsActive)
+    }
+    
+    @ViewBuilder private var professorsSection: some View {
+        if !filteredProfessors.isEmpty {
+            Section {
+                ForEach(filteredProfessors, id: \._id) { prof in
+                    NavigationLink {
+                        VStack {
+                            ProfessorView(professor: prof, isExpanded: true)
+                            Spacer()
+                        }.padding()
+                    } label: {
+                        Text(prof.name ?? prof._id)
+                    }
+                }
+            } header: {
+                Text("Professori")
+            }
+        }
+    }
+    
+    @ViewBuilder private var studentsSection: some View {
+        if !filteredStudents.isEmpty {
+            Section {
+                ForEach(filteredStudents, id: \._id) { student in
+                    NavigationLink {
+                        StudentView(student: student)
+                            .padding()
+                    } label: {
+                        Text(student.name ?? student._id)
+                    }
+                }
+            } header: {
+                Text("Studenti")
+            }
         }
     }
 }

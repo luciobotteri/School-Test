@@ -16,6 +16,7 @@ struct ClassroomDetailView: View {
     
     @State private var errorMessage: String?
     @State private var isLoading = false
+    @State private var showEditClassroom = false
     @State private var showingDeleteAlert = false
     @State private var offset: CGFloat = 0
 
@@ -32,6 +33,8 @@ struct ClassroomDetailView: View {
                 studentsList
                     .padding(.top)
                 Spacer()
+                editButton
+                    .padding(.bottom)
                 if isLoading {
                     ProgressView()
                 } else {
@@ -59,6 +62,9 @@ struct ClassroomDetailView: View {
                     }
                 }
         )
+        .fullScreenCover(isPresented: $showEditClassroom) {
+            AddClassroomView(classroomToEdit: classroom)
+        }
     }
     
     @ViewBuilder private var professorView: some View {
@@ -92,6 +98,15 @@ struct ClassroomDetailView: View {
             Text("Nessuno studente assegnato a questa classe.")
                 .foregroundColor(.secondary)
         }
+    }
+    
+    private var editButton: some View {
+        Button {
+            showEditClassroom = true
+        } label: {
+            Label("Edit classroom", systemImage: "pencil")
+                .font(.headline)
+        }.buttonStyle(.borderedProminent)
     }
     
     private var deleteButton: some View {

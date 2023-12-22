@@ -16,5 +16,5 @@ struct Professor: Codable {
 }
 
 extension Professor {
-    static var mock = Professor(_id: "ID", name: "Lucio", email: "luciobotteri@gmail.com", subjects: ["History", "English"], avatar: "https://api.multiavatar.com/Giulio%20Sforza.png")
+    static var mock = Professor(_id: "ID_\(Int.random(in: 0...9999))", name: "Lucio", email: "luciobotteri@gmail.com", subjects: ["History", "English"], avatar: "https://api.multiavatar.com/Giulio%20Sforza.png")
 }
