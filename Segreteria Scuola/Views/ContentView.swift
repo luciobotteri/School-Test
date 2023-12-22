@@ -44,7 +44,7 @@ struct ContentView: View {
     
     @ViewBuilder private var listOrDetailView: some View {
         if let i = selectedIndex {
-            ClassroomDetailView(classroom: classrooms[i])
+            ClassroomDetailView(classroom: classrooms[i], selectedIndex: $selectedIndex)
                 .transition(.move(edge: .trailing).combined(with: .opacity))
         } else {
             ClassroomsListView(selectedIndex: $selectedIndex)
@@ -55,5 +55,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .environment(ViewModel.withMocks(12))
+        .environment(ViewModel.withMocks(0))
 }

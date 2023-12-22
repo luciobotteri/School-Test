@@ -10,9 +10,13 @@ import SwiftUI
 struct AddClassroomView: View {
     
     @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.dismiss) private var dismiss
+    @Environment(ViewModel.self) private var viewModel
+    
     @State private var id = "sadf"
     @State private var name = ""
     @State private var isLoading = false
+    @State private var errorMessage: String?
     
     var body: some View {
         ScrollView {
@@ -42,28 +46,39 @@ struct AddClassroomView: View {
                 ProgressView()
                     .padding(30)
             } else {
-                Button {
-                    isLoading = true
-                    Task {
-                        try? await NetworkManager.shared.createClassroom(
-                            Classroom(_id: id, roomName: name
-                                     )
-                        )
+                VStack {
+                    if let errorMessage {
+                        Text(errorMessage)
                     }
-                } label: {
-                    HStack {
-                        Spacer()
-                        Text("Save")
-                            .frame(height: 35)
-                            .font(.title3)
-                            .fontDesign(.rounded)
-                            .bold()
-                        Spacer()
+                    Button {
+                        isLoading = true
+                        Task {
+                            do {
+                                try await NetworkManager.shared.createClassroom(
+                                    Classroom(_id: id, roomName: name)
+                                )
+                                await viewModel.fetchClassrooms()
+                                dismiss.callAsFunction()
+                            } catch {
+                                isLoading = false
+                                errorMessage = "An error occurred. Please try again."
+                            }
+                        }
+                    } label: {
+                        HStack {
+                            Spacer()
+                            Text("Save")
+                                .frame(height: 35)
+                                .font(.title3)
+                                .fontDesign(.rounded)
+                                .bold()
+                            Spacer()
+                        }
                     }
+                    .padding()
+                    .buttonStyle(.borderedProminent)
+                    .tint(.indigo)
                 }
-                .padding()
-                .buttonStyle(.borderedProminent)
-                .tint(.indigo)
             }
         }
     }
@@ -78,4 +93,5 @@ struct AddClassroomView: View {
 
 #Preview {
     AddClassroomView()
+        .environment(ViewModel.withMocks(2))
 }

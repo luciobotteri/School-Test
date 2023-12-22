@@ -8,47 +8,59 @@
 import SwiftUI
 
 struct ProfessorView: View {
+    
     var professor: Professor
+    
+    @State private var isExpanded = false
 
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
-                // Immagine del Professore
+        VStack(alignment: .leading) {
+            Text("Professore")
+                .font(.title).bold()
+                .foregroundColor(.green)
+                .fontDesign(.rounded)
+            
+            HStack(spacing: 10) {
                 CircleAvatarView(urlString: professor.avatar)
-                    .frame(maxWidth: 150, maxHeight: 150)
-
-                // Nome
-                Text(professor.name ?? "Name")
-                    .font(.title)
-                    .fontWeight(.bold)
-
-                // Email
-                Text(professor.email ?? "Email")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-
-                // Materie insegnate
+                    .frame(width: isExpanded ? 80 : 50, height: isExpanded ? 80 : 50)
                 VStack(alignment: .leading) {
-                    Text("Materie Insegnate:")
-                        .font(.headline)
-                        .padding(.bottom, 5)
-
-                    ForEach(professor.subjects ?? [], id: \.self) { subject in
-                        Text(subject)
-                            .padding(.vertical, 3)
-                    }
+                    Text(professor.name ?? "No name")
+                        .font(.title2)
+                        .bold()
+                    Text(professor.email ?? "Email non presente")
+                        .foregroundStyle(.secondary)
                 }
-
                 Spacer()
+                Image(systemName: "chevron.right")
+                    .rotationEffect(isExpanded ? .init(degrees: 90) : .zero)
             }
-            .padding()
+            .contentShape(Rectangle())
+            .onTapGesture {
+                withAnimation {
+                    isExpanded.toggle()
+                }
+            }
+            
+            if isExpanded {
+                expandedContent
+                    .padding(.top)
+            }
         }
-        .navigationTitle("Dettagli Professore")
-        .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    @ViewBuilder private var expandedContent: some View {
+        let subjects = professor.subjects?.joined(separator: ", ") ?? "Nessuna"
+        VStack(alignment: .leading) {
+            Text("Materie Insegnate:")
+                .font(.headline)
+                .padding(.bottom, 5)
+            Text(subjects + ".")
+        }
     }
 }
 
 
 #Preview {
     ProfessorView(professor: .mock)
+        .padding()
 }
