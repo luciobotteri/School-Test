@@ -12,6 +12,7 @@ struct ContentView: View {
     @Environment(ViewModel.self) private var viewModel
     
     @State private var selectedIndex: Int?
+    @State private var showSearch = false
     @State private var showAddClassroom = false
     @State private var isAnimating = false
     
@@ -26,7 +27,7 @@ struct ContentView: View {
             listOrDetailView
                 .safeAreaPadding(.top, 120)
             VStack {
-                HeaderView(selectedIndex: $selectedIndex, showAddClassroom: $showAddClassroom)
+                HeaderView(selectedIndex: $selectedIndex, showAddClassroom: $showAddClassroom, showSearch: $showSearch)
                 Spacer()
             }
         }.background {

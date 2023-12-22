@@ -13,6 +13,7 @@ struct HeaderView: View {
     
     @Binding var selectedIndex: Int?
     @Binding var showAddClassroom: Bool
+    @Binding var showSearch: Bool
     
     var body: some View {
         ZStack {
@@ -49,15 +50,29 @@ struct HeaderView: View {
             HStack {
                 Spacer()
                 if selectedIndex == nil {
-                    Button {
-                        showAddClassroom = true
+                    Menu {
+                        Button {
+                            showAddClassroom = true
+                        } label: {
+                            Label("Add new classroom", systemImage: "plus")
+                        }
+                        Button {
+                            showSearch = true
+                        } label: {
+                            Label("Search", systemImage: "magnifier.glass")
+                        }
+                        Button(role: .destructive) {
+                            showAddClassroom = true
+                        } label: {
+                            Label("Logout", systemImage: "rectangle.portrait.and.arrow.right")
+                        }
                     } label: {
-                        Image(systemName: "plus")
+                        Image(systemName: "ellipsis")
+                            .font(.title).padding().fontWeight(.semibold)
+                            .fontDesign(.rounded)
+                            .foregroundStyle(Color(white: 0.95))
+                            .transition(.move(edge: .trailing).combined(with: .opacity))
                     }
-                    .font(.title).padding().fontWeight(.semibold)
-                    .fontDesign(.rounded)
-                    .foregroundStyle(Color(white: 0.95))
-                    .transition(.move(edge: .trailing).combined(with: .opacity))
                 }
             }
         }
@@ -75,7 +90,7 @@ struct HeaderView: View {
 
 #Preview {
     VStack(spacing: 40) {
-        HeaderView(selectedIndex: .constant(nil), showAddClassroom: .constant(false))
-        HeaderView(selectedIndex: .constant(0), showAddClassroom: .constant(false))
+        HeaderView(selectedIndex: .constant(nil), showAddClassroom: .constant(false), showSearch: .constant(false))
+        HeaderView(selectedIndex: .constant(0), showAddClassroom: .constant(false), showSearch: .constant(false))
     }.environment(ViewModel.withMocks(1))
 }

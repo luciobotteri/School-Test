@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AFA0CA452B34EFE700CBB17D /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA0CA442B34EFE700CBB17D /* HeaderView.swift */; };
 		AFA0CA472B34F40A00CBB17D /* AddClassroomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA0CA462B34F40A00CBB17D /* AddClassroomView.swift */; };
+		AFB05D262B351D020067C7B3 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB05D252B351D020067C7B3 /* SearchView.swift */; };
 		AFEF19D72B3258D900EE659B /* Segreteria_ScuolaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF19D62B3258D900EE659B /* Segreteria_ScuolaApp.swift */; };
 		AFEF19D92B3258D900EE659B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF19D82B3258D900EE659B /* ContentView.swift */; };
 		AFEF19DB2B3258DB00EE659B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFEF19DA2B3258DB00EE659B /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		AFA0CA442B34EFE700CBB17D /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		AFA0CA462B34F40A00CBB17D /* AddClassroomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClassroomView.swift; sourceTree = "<group>"; };
+		AFB05D252B351D020067C7B3 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		AFEF19D32B3258D900EE659B /* Segreteria Scuola.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Segreteria Scuola.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFEF19D62B3258D900EE659B /* Segreteria_ScuolaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segreteria_ScuolaApp.swift; sourceTree = "<group>"; };
 		AFEF19D82B3258D900EE659B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				AFEF19FC2B34DCF800EE659B /* ClassroomsListView.swift */,
 				AFA0CA442B34EFE700CBB17D /* HeaderView.swift */,
 				AFA0CA462B34F40A00CBB17D /* AddClassroomView.swift */,
+				AFB05D252B351D020067C7B3 /* SearchView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFEF19D92B3258D900EE659B /* ContentView.swift in Sources */,
+				AFB05D262B351D020067C7B3 /* SearchView.swift in Sources */,
 				AFEF19D72B3258D900EE659B /* Segreteria_ScuolaApp.swift in Sources */,
 				AFEF19F22B3343D400EE659B /* ClassroomView.swift in Sources */,
 				AFEF19EA2B32593900EE659B /* Professor.swift in Sources */,
