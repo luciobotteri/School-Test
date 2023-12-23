@@ -40,9 +40,6 @@ struct AddProfessorView: View {
     
     var body: some View {
         ZStack {
-            Rectangle()
-                .fill(Color.background2.gradient)
-                .ignoresSafeArea()
             ScrollView {
                 VStack {
                     avatarView
@@ -53,8 +50,10 @@ struct AddProfessorView: View {
             }
             .scrollIndicators(.never)
             .scrollBounceBehavior(.basedOnSize)
+            .background(Color.background.gradient)
             .safeAreaInset(edge: .bottom) {
                 saveButton
+                    .background(.thinMaterial)
             }
         }.onAppear {
             name = professor?.name ?? ""
