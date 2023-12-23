@@ -13,42 +13,38 @@ struct StudentView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                // Immagine dello Studente (se disponibile)
+                
                 HStack {
                     CircleAvatarView(urlString: student.avatar)
                         .frame(width: 100, height: 100)
                     Spacer()
                 }
-
-                // Nome (se disponibile)
+                
                 if let name = student.name {
                     Text(name)
                         .font(.title)
                         .fontWeight(.bold)
                 }
-
-                // Email (se disponibile)
+                
                 if let email = student.email {
                     Text(email)
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
                 
-                // Classe (se disponibile)
                 if let classroom = student.classroom {
                     VStack(alignment: .leading) {
-                        Text("Classe:")
+                        Text("Class:")
                             .font(.headline)
                             .padding(.bottom, 5)
 
                         Text(classroom)
                     }
                 }
-
-                // Note (se disponibili)
+                
                 if let notes = student.notes {
                     VStack(alignment: .leading) {
-                        Text("Note:")
+                        Text("Notes:")
                             .font(.headline)
                             .padding(.bottom, 5)
 
@@ -60,7 +56,7 @@ struct StudentView: View {
             }
             .padding()
         }
-        .navigationTitle("Dettagli Studente")
+        .navigationTitle("Student detail")
         .navigationBarTitleDisplayMode(.inline)
     }
 }

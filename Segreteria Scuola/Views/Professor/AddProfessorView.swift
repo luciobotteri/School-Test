@@ -127,7 +127,7 @@ struct AddProfessorView: View {
                 _id: UUID().uuidString,
                 name: name.trimmingCharacters(in: .whitespaces),
                 email: email.filter { !$0.isWhitespace },
-                subjects: subjects,
+                subjects: subjects.map { $0.trimmingCharacters(in: .whitespaces) },
                 avatar: avatar
             )
             dismiss.callAsFunction()

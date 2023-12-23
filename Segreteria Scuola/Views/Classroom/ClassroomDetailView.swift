@@ -72,7 +72,7 @@ struct ClassroomDetailView: View {
         if let professor = classroom.professor {
             ProfessorView(professor: professor)
         } else {
-            Text("Nessun professore assegnato a questa classe.")
+            Text("No professor yet.")
                 .foregroundColor(.secondary)
         }
     }
@@ -81,7 +81,7 @@ struct ClassroomDetailView: View {
         if let students = classroom.students, !students.isEmpty {
             StudentsListView(students: .constant(students))
         } else {
-            Text("Nessuno studente assegnato a questa classe.")
+            Text("No students yet.")
                 .foregroundColor(.secondary)
         }
     }
@@ -114,6 +114,7 @@ struct ClassroomDetailView: View {
                     do {
                         try await NetworkManager.shared.deleteClassroom(classroom)
                         await viewModel.fetchClassrooms()
+                        isLoading = false
                         withAnimation {
                             selectedIndex = nil
                         }

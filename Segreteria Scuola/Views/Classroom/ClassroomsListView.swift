@@ -43,5 +43,5 @@ struct ClassroomsListView: View {
 
 #Preview {
     ClassroomsListView(selectedIndex: .constant(0))
-        .environment(ViewModel.withMocks(4))
+        .environment(ViewModel.withMocks(0))
 }

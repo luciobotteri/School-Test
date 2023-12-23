@@ -15,6 +15,7 @@ struct ContentView: View {
     @State private var showSearch = false
     @State private var showAddClassroom = false
     @State private var isAnimating = false
+    @State private var bounceValue: Int = 0
     
     @Namespace private var animationNamespace
     
@@ -31,7 +32,7 @@ struct ContentView: View {
                 Spacer()
             }
         }.background {
-            CustomColor.background.ignoresSafeArea()
+            Color.background.ignoresSafeArea()
         }.fullScreenCover(isPresented: $showAddClassroom) {
             AddClassroomView()
         }.sheet(isPresented: $showSearch) {
@@ -46,7 +47,9 @@ struct ContentView: View {
     }
     
     @ViewBuilder private var listOrDetailView: some View {
-        if let i = selectedIndex {
+        if classrooms.isEmpty {
+            noDataView
+        } else if let i = selectedIndex, i < classrooms.count {
             ClassroomDetailView(classroom: classrooms[i], selectedIndex: $selectedIndex)
                 .transition(.move(edge: .trailing).combined(with: .opacity))
         } else {
@@ -54,9 +57,41 @@ struct ContentView: View {
                 .transition(.move(edge: .leading).combined(with: .opacity))
         }
     }
+    
+    @ViewBuilder private var noDataView: some View {
+        ScrollView {
+        }.refreshable {
+            Task {
+                await viewModel.fetchClassrooms()
+            }
+        }
+        VStack {
+            Image(systemName: "tray")
+                .font(.system(size: 80))
+                .padding(.bottom)
+            Text("No classrooms yet")
+                .font(.headline)
+                .fontDesign(.rounded)
+        }.foregroundStyle(.header)
+        VStack(alignment: .trailing) {
+            HStack {
+                Spacer()
+                Image(systemName: "arrow.up")
+                    .font(.largeTitle).bold()
+                    .symbolEffect(.pulse, options: .repeating, isActive: true)
+            }.padding(.horizontal, 15)
+            Text("Start from here")
+                .font(.headline)
+                .fontDesign(.rounded)
+                .padding(.horizontal)
+            Spacer()
+        }
+        .foregroundStyle(.header)
+        .offset(y: -25)
+    }
 }
 
 #Preview {
     ContentView()
-        .environment(ViewModel.withMocks(10))
+        .environment(ViewModel.withMocks(0))
 }

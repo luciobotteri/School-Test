@@ -63,7 +63,7 @@ struct AddClassroomView: View {
         .scrollBounceBehavior(.basedOnSize)
         .scrollIndicators(.never)
         .padding()
-        .background(Color.background2.gradient)
+        .background(Color.background.gradient)
         .safeAreaInset(edge: .bottom) {
             bottomButtons
         }
@@ -87,14 +87,10 @@ struct AddClassroomView: View {
     
     @ViewBuilder private var studentsField: some View {
         StudentsListView(students: $students, isEditable: true)
-        NavigationLink {
-            AddStudentView()
+        Button {
+            students.append(.mock)
         } label: {
-            Button {
-                students.append(.mock)
-            } label: {
-                Label("Add student", systemImage: "person.fill.badge.plus")
-            }
+            Label("Add student", systemImage: "person.fill.badge.plus")
         }
         .padding(.top)
         .padding(.bottom, 80)

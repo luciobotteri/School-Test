@@ -58,7 +58,7 @@ struct ProfessorView: View {
                     )
             }
         }
-        .navigationTitle("Dettagli professore")
+        .navigationTitle("Professor detail")
         .navigationBarTitleDisplayMode(.inline)
     }
     
@@ -74,14 +74,14 @@ struct ProfessorView: View {
                     .minimumScaleFactor(0.1)
             }
             if !isExpanded {
-                Text(professor.email ?? "Email non presente")
+                Text(professor.email ?? "No email address")
                     .foregroundStyle(.secondary)
             }
         }
     }
     
     @ViewBuilder private var expandedContent: some View {
-        let subjects = professor.subjects?.joined(separator: ", ") ?? "Nessuna"
+        let subjects = professor.subjects?.joined(separator: ", ") ?? "No Subjects"
         VStack(alignment: .leading) {
             Text("Subjects:")
                 .font(.headline)

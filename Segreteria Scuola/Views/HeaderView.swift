@@ -18,7 +18,7 @@ struct HeaderView: View {
     var body: some View {
         ZStack {
             Wave()
-                .fill(CustomColor.header)
+                .fill(Color.header)
                 .ignoresSafeArea()
                 .padding(.bottom)
             HStack(spacing: 2) {
@@ -62,7 +62,9 @@ struct HeaderView: View {
                             Label("Search", systemImage: "magnifyingglass")
                         }
                         Button(role: .destructive) {
-                            showAddClassroom = true
+                            withAnimation {
+                                viewModel.classrooms.removeAll()
+                            }
                         } label: {
                             Label("Logout", systemImage: "rectangle.portrait.and.arrow.right")
                         }
@@ -80,7 +82,7 @@ struct HeaderView: View {
     }
     
     private var titleString: String {
-        if let i = selectedIndex {
+        if let i = selectedIndex, i < viewModel.classrooms.count {
             viewModel.classrooms[i]._id
         } else {
             "Class"
