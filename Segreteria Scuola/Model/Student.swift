@@ -17,5 +17,5 @@ struct Student: Codable {
 }
 
 extension Student {
-    static var mock = Student(_id: "ID_\(Int.random(in: 0...9999))", name: "Lucio", email: "luciobotteri@gmail.com", avatar: nil, notes: "A nice guy", classroom: "C1")
+    static var mock: Student { RandomStudentFactory.make(classroom: "C1") }
 }

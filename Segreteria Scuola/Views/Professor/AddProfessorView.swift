@@ -15,13 +15,15 @@ struct AddProfessorView: View {
     @State private var name = ""
     @State private var email = ""
     @State private var avatar: String? = ""
-    @State private var subjects = ["String"]
+    @State private var subjects = [String]()
+    
+    @FocusState private var focus: Int?
     
     private var title: String {
-        if let professor {
-            "Edit professor " + (professor.name ?? professor._id)
-        } else {
+        if professor == nil {
             "Add Professor"
+        } else {
+            "Edit Professor"
         }
     }
     
@@ -47,7 +49,7 @@ struct AddProfessorView: View {
                         .padding(.top)
                     fields
                     Spacer()
-                }
+                }.padding(.bottom, 60)
             }
             .scrollIndicators(.never)
             .scrollBounceBehavior(.basedOnSize)
@@ -58,7 +60,11 @@ struct AddProfessorView: View {
             name = professor?.name ?? ""
             email = professor?.email ?? ""
             avatar = professor?.avatar
+            subjects = professor?.subjects ?? []
         }.navigationTitle(title)
+            .onTapGesture {
+                focus = nil
+            }
     }
     
     @ViewBuilder private var avatarView: some View {
@@ -81,10 +87,18 @@ struct AddProfessorView: View {
     private var fields: some View {
         VStack(alignment: .leading) {
             CustomField(field: $name, title: "Name")
+                .textContentType(.name)
+                .focused($focus, equals: 0)
+                .submitLabel(.next)
             CustomField(field: $email, title: "Email", isValid: emailIsValid || email.isEmpty)
+                .textContentType(.emailAddress)
+                .focused($focus, equals: 1)
+                .submitLabel(.next)
             ForEach($subjects.indices, id: \.self) { i in
                 HStack(alignment: .lastTextBaseline) {
                     CustomField(field: $subjects[i], title: "Subject \(i+1)")
+                        .focused($focus, equals: i+2)
+                        .submitLabel(i == subjects.count-1 ? .done : .next)
                     Button(role: .destructive) {
                         subjects.remove(at: i)
                     } label: {
@@ -94,13 +108,17 @@ struct AddProfessorView: View {
             }
             Button {
                 subjects.append("")
-                
             } label: {
                 Label("Add new subject", systemImage: "plus")
             }
         }
         .font(.title3)
         .padding()
+        .onSubmit {
+            if let focus {
+                self.focus = focus + 1
+            }
+        }
     }
     
     private var saveButton: some View {

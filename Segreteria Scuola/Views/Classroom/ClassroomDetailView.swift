@@ -43,7 +43,8 @@ struct ClassroomDetailView: View {
             }
             .padding()
         }
-        .offset(x: offset)
+        .scrollIndicators(.never)
+        .offset(x: offset > 0 ? offset : 0)
         .gesture(
             DragGesture()
                 .onChanged { value in
@@ -78,22 +79,7 @@ struct ClassroomDetailView: View {
     
     @ViewBuilder private var studentsList: some View {
         if let students = classroom.students, !students.isEmpty {
-            VStack(alignment: .leading) {
-                Text("Studenti")
-                    .font(.title).bold()
-                    .foregroundColor(.orange)
-                    .padding(.bottom, 10)
-                
-                ForEach(students, id: \._id) { student in
-                    HStack {
-                        Image(systemName: "person.fill")
-                            .foregroundColor(.orange)
-                        Text(student.name ?? "No name")
-                    }
-                    .font(.title2)
-                    .padding(.bottom, 10)
-                }
-            }
+            StudentsListView(students: .constant(students))
         } else {
             Text("Nessuno studente assegnato a questa classe.")
                 .foregroundColor(.secondary)
@@ -119,6 +105,7 @@ struct ClassroomDetailView: View {
             } label: {
                 Label("Delete classroom", systemImage: "trash")
                     .font(.headline)
+                    .padding(.bottom, 80)
             }
         }.alert("Are you sure?", isPresented: $showingDeleteAlert) {
             Button(role: .destructive) {

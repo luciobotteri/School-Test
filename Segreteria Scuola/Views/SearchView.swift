@@ -77,7 +77,7 @@ struct SearchView: View {
                     }
                 }
             } header: {
-                Text("Professori")
+                Text("Professors")
             }
         }
     }
@@ -94,7 +94,7 @@ struct SearchView: View {
                     }
                 }
             } header: {
-                Text("Studenti")
+                Text("Students")
             }
         }
     }

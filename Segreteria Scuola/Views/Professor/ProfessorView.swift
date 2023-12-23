@@ -12,12 +12,13 @@ struct ProfessorView: View {
     var professor: Professor
     
     @State var isExpanded = false
+    var isExpandable = true
     
     @Namespace private var animationNamespace
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Professore")
+            Text("Professor")
                 .font(.title).bold()
                 .foregroundColor(.green)
                 .fontDesign(.rounded)
@@ -30,13 +31,17 @@ struct ProfessorView: View {
                         .matchedGeometryEffect(id: "professorDetails", in: animationNamespace)
                 }
                 Spacer()
-                Image(systemName: "chevron.right")
-                    .rotationEffect(isExpanded ? .init(degrees: 90) : .zero)
+                if isExpandable {
+                    Image(systemName: "chevron.right")
+                        .rotationEffect(isExpanded ? .init(degrees: 90) : .zero)
+                }
             }
             .contentShape(Rectangle())
             .onTapGesture {
-                withAnimation {
-                    isExpanded.toggle()
+                if isExpandable {
+                    withAnimation {
+                        isExpanded.toggle()
+                    }
                 }
             }
             
@@ -46,6 +51,11 @@ struct ProfessorView: View {
                     .padding(.top)
                 expandedContent
                     .padding(.top)
+                    .transition(
+                        .move(edge: .top)
+                        .combined(with: .scale)
+                        .combined(with: .opacity)
+                    )
             }
         }
         .navigationTitle("Dettagli professore")
@@ -73,7 +83,7 @@ struct ProfessorView: View {
     @ViewBuilder private var expandedContent: some View {
         let subjects = professor.subjects?.joined(separator: ", ") ?? "Nessuna"
         VStack(alignment: .leading) {
-            Text("Materie Insegnate:")
+            Text("Subjects:")
                 .font(.headline)
                 .padding(.bottom, 5)
             Text(subjects + ".")
@@ -84,6 +94,8 @@ struct ProfessorView: View {
 
 #Preview {
     VStack {
+        ProfessorView(professor: .mock, isExpandable: false)
+        Divider().padding()
         ProfessorView(professor: .mock)
         Divider().padding()
         ProfessorView(professor: .mock, isExpanded: true)

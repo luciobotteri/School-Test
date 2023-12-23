@@ -18,13 +18,15 @@ struct AddClassroomView: View {
     @State private var isLoading = false
     @State private var errorMessage: String?
     @State private var professor: Professor?
+    @State private var students = [Student]()
     
     var classroomToEdit: Classroom?
     
-    private var classroomIsReadyToBeSaved: Bool {
+    private var classroomIsValid: Bool {
         !id.isEmpty &&
         !name.isEmpty &&
-        professor != nil
+        professor != nil &&
+        !students.isEmpty
     }
     
     private var title: String {
@@ -41,7 +43,7 @@ struct AddClassroomView: View {
                 .navigationTitle(title)
         }.onAppear {
             copyDataFromClassroomToEdit()
-        }.onChange(of: id) { _, newValue in
+        }.onChange(of: id) {
             id = id.filter { !$0.isWhitespace }
         }.tint(.indigo)
     }
@@ -52,6 +54,8 @@ struct AddClassroomView: View {
                 CustomField(field: $id, title: "ID")
                 CustomField(field: $name, title: "Name")
                 professorField
+                    .padding(.bottom, 40)
+                studentsField
             }
         }
         .font(.title3)
@@ -68,8 +72,7 @@ struct AddClassroomView: View {
     @ViewBuilder private var professorField: some View {
         let title = professor == nil ? "Add professor" : "Edit professor"
         if let professor {
-            Text("Professor: " + (professor.name ?? professor._id))
-                .padding(.bottom)
+            ProfessorView(professor: professor, isExpandable: false)
         }
         NavigationLink {
             AddProfessorView(professor: $professor)
@@ -82,16 +85,19 @@ struct AddClassroomView: View {
         }
     }
     
-    private var studentField: some View {
+    @ViewBuilder private var studentsField: some View {
+        StudentsListView(students: $students, isEditable: true)
         NavigationLink {
             AddStudentView()
         } label: {
-            HStack {
-                Text("Add professor")
-                Spacer()
-                Image(systemName: "chevron.right")
+            Button {
+                students.append(.mock)
+            } label: {
+                Label("Add student", systemImage: "person.fill.badge.plus")
             }
         }
+        .padding(.top)
+        .padding(.bottom, 80)
     }
     
     @ViewBuilder private var bottomButtons: some View {
@@ -108,7 +114,7 @@ struct AddClassroomView: View {
                     saveButton
                 }
                 .buttonStyle(.borderedProminent)
-                .padding()
+                .padding([.bottom, .horizontal])
             }
         }
     }
@@ -118,9 +124,13 @@ struct AddClassroomView: View {
             isLoading = true
             Task {
                 do {
-                    try await NetworkManager.shared.createClassroom(
-                        Classroom(_id: id, roomName: name)
-                    )
+                    if let classroomToEdit {
+                        try await NetworkManager.shared.updateClassroom(classroom: Classroom(_id: classroomToEdit._id, roomName: name, students: students, professor: professor))
+                    } else {
+                        try await NetworkManager.shared.createClassroom(
+                            Classroom(_id: id, roomName: name, students: students, professor: professor)
+                        )
+                    }
                     await viewModel.fetchClassrooms()
                     dismiss.callAsFunction()
                 } catch {
@@ -139,7 +149,7 @@ struct AddClassroomView: View {
                 Spacer()
             }
         }
-        .disabled(!classroomIsReadyToBeSaved)
+        .disabled(!classroomIsValid)
     }
     
     private var cancelButton: some View {
@@ -163,6 +173,7 @@ struct AddClassroomView: View {
             id = classroomToEdit._id
             name = classroomToEdit.roomName ?? ""
             professor = classroomToEdit.professor
+            students = classroomToEdit.students ?? []
         }
     }
 }
